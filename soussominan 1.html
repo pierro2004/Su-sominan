@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complexe Scolaire Su somina</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        body {
+            background: pink;
+            animation: colorChange 5s infinite alternate;
+            font-family: Arial, sans-serif;
+        }
+        
+        @keyframes colorChange {
+            0% { background: pink; }
+            25% { background: lightblue; }
+            50% { background: lightgreen; }
+            75% { background: lightyellow; }
+            100% { background: lightcoral; }
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .menu-toggle {
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .signup-btn {
+            background-color: #FF6F61;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        nav {
+            display: none;
+            position: absolute;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            top: 50px;
+            left: 0;
+            width: 200px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid white;
+        }
+
+        .content {
+            display: none;
+            padding: 20px;
+        }
+
+        .welcome-message {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 50px;
+        }
+
+        .info-text {
+            text-align: center;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .quote {
+            font-size: 20px;
+            font-style: italic;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .message {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                font-size: 30px;
+            }
+
+            nav {
+                width: 100%;
+                top: 50px;
+                left: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="menu">
+            <ul>
+                <li onclick="showSection('about')">À propos de nous</li>
+                <li onclick="showSection('formations')">Nos formations</li>
+                <li onclick="showSection('connexion')">Connexion / Inscription</li>
+                <li onclick="showSection('contact')">Contactez-nous</li>
+                <li onclick="showSection('autres')">Autres</li>
+            </ul>
+        </nav>
+        <button class="signup-btn" onclick="showSection('connexion')">S'inscrire</button>
+    </header>
+
+    <main>
+        <section class="welcome-message">
+            <h1>Bienvenue au CPEG Su somina : L’Excellence Académique à Votre Portée !</h1>
+            <p>Vous rêvez d’un avenir brillant et plein d’opportunités ? Au CPEG Su somina, nous faisons de votre réussite notre priorité. Avec des programmes de formation de qualité, un encadrement personnalisé et un environnement propice à l’apprentissage, nous vous donnons les clés pour bâtir votre avenir.</p>
+        </section>
+
+        <section class="info-text">
+            <p>Pourquoi choisir Su somina ?</p>
+            <ul>
+                <li>✅ Une formation d’excellence adaptée aux exigences du monde moderne.</li>
+                <li>✅ Des enseignants qualifiés et passionnés, prêts à vous guider vers la réussite.</li>
+                <li>✅ Un cadre d’apprentissage innovant avec des ressources pédagogiques de pointe.</li>
+                <li>✅ Un réseau solide d’anciens étudiants et de professionnels pour booster votre carrière.</li>
+            </ul>
+            <p>Ne laissez pas passer cette chance ! Inscrivez-vous dès aujourd’hui et faites partie des futurs leaders formés à Soussominan. L’avenir vous attend, prenez votre place maintenant !</p>
+        </section>
+
+        <section id="about" class="content">
+            <h1 class="section-title">À propos de nous</h1>
+            <p>Insérez ici une description personnalisée du complexe scolaire.</p>
+            <blockquote class="quote">"L'éducation est la clé de l'avenir, et l'avenir commence ici."</blockquote>
+        </section>
+
+        <section id="formations" class="content">
+            <h1 class="section-title">Nos formations</h1>
+            <table>
+                <tbody><tr>
+                    <th>Module</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Exemple de module</td>
+                    <td>Description du module</td>
+                </tr>
+            </tbody></table>
+        </section>
+
+        <section id="connexion" class="content">
+            <h1 class="section-title">Connexion / Inscription</h1>
+            <form>
+                <input type="text" placeholder="Nom &amp; Prénom" required>
+                <input type="email" placeholder="Adresse Email" required>
+                <input type="password" placeholder="Mot de passe" required>
+                <button type="submit">Se connecter</button>
+                <button type="button" onclick="googleLogin()">Connexion avec Google</button>
+            </form>
+            <h2>Inscription</h2>
+            <form>
+                <input type="text" placeholder="Nom &amp; Prénom" required>
+                <input type="text" placeholder="Adresse" required>
+                <input type="text" placeholder="Pays de résidence" required>
+                <input type="text" placeholder="Département" required>
+                <input type="text" placeholder="Commune" required>
+                <input type="text" placeholder="Ville/Village" required>
+                <input type="tel" placeholder="Numéro de téléphone" required>
+                <button type="submit">S'inscrire</button>
+            </form>
+        </section>
+
+        <section id="contact" class="content">
+            <h1 class="section-title">Contactez-nous</h1>
+            <p><a href="tel:+22900000000">Téléphone</a></p>
+            <p><a href="https://wa.me/22900000000">WhatsApp</a></p>
+            <p><a href="mailto:contact@soussominan.com">Email</a></p>
+        </section>
+
+        <section id="autres" class="content">
+            <h1 class="section-title">Autres</h1>
+            <p>Interface personnalisable par l'administrateur.</p>
+        </section>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function showSection(id) {
+            document.querySelectorAll('.content').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(id).style.display = 'block';
+            document.getElementById('menu').style.display = 'none';
+            window.scrollTo({ top: document.getElementById(id).offsetTop, behavior: 'smooth' });
+        }
+
+        function googleLogin() {
+            alert("Connexion avec Google (fonctionnalité à implémenter)");
+        }
+    </script>
+
+</body></html>
+
